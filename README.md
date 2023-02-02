@@ -22,7 +22,16 @@ I did notice this comment:"Beware, use difference heap size or memory block size
 
 However, after exhausting the codegen unit options using 1, 16, 256, etc. turning optimizations on and off, and other various combinations, all that was seen were various other errors.  The 3 errors that were able to be produced were the following:
 
-Produced the "MemOutofBound" error:
+Test Passes with the following configuration and Capsule v0.7.3:
+overflow-checks = true
+opt-level = 's'
+lto = false
+codegen-units = 1
+panic = 'abort'
+
+![image](https://user-images.githubusercontent.com/106935903/216408100-f9f6cfa6-af58-4779-ba1a-c447600bf0eb.png)
+
+Produced the "MemOutofBound" error with the following configuration and Capsule v0.9.0:
 overflow-checks = true
 opt-level = 's'
 lto = false
@@ -30,7 +39,7 @@ codegen-units = 1
 panic = 'abort'
 ![image](https://user-images.githubusercontent.com/106935903/216393587-ca316dad-0757-48e8-a775-4c3aee60b1c9.png)
 
-Produced the "Invalid Instruction" error
+Produced the "Invalid Instruction" error with the following configuration and Capsule v0.9.0:
 overflow-checks = false
 opt-level = 0
 lto = false
